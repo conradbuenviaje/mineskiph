@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mineski Global Philippines — Passion Turned Legacy</title>
+<meta name="description" content="Experiential, esports & production solutions for brands across Southeast Asia. Building tournaments, stages and stories since 2004.">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+<!-- Tailwind CSS CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        display: ['"Anton"', '"Archivo Black"', 'system-ui', 'sans-serif'],
+        sans: ['"Inter"', 'system-ui', 'sans-serif'],
+        mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+      },
+      colors: {
+        background: 'var(--background)',
+        foreground: 'var(--foreground)',
+        paper: 'var(--paper)',
+        ink: 'var(--ink)',
+        accent: 'var(--accent)',
+        'accent-foreground': 'var(--accent-foreground)',
+        glow: 'var(--glow)',
+        mute: 'var(--mute)',
+        line: 'var(--line)',
+        card: 'var(--card)',
+        'card-foreground': 'var(--card-foreground)',
+        'muted-foreground': 'var(--muted-foreground)',
+      },
+      animation: {
+        marquee: 'marquee 40s linear infinite',
+        'marquee-fast': 'marquee 22s linear infinite',
+      },
+      keyframes: {
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
+        },
+      },
+    },
+  },
+}
+</script>
+
+<style>
+  :root {
+    --background: oklch(0.13 0 0);
+    --foreground: oklch(0.96 0.01 90);
+    --paper: oklch(0.95 0.015 90);
+    --ink: oklch(0.13 0 0);
+    --accent: oklch(0.85 0.22 90);
+    --accent-foreground: oklch(0.12 0 0);
+    --glow: oklch(0.92 0.16 175);
+    --mute: oklch(0.22 0 0);
+    --muted-foreground: oklch(0.65 0.01 90);
+    --line: oklch(0.30 0 0);
+    --card: oklch(0.16 0 0);
+    --card-foreground: oklch(0.96 0.01 90);
+  }
+
+  * { border-color: var(--line); box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: "Inter", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .font-display { font-family: "Anton", "Archivo Black", system-ui, sans-serif; letter-spacing: -0.01em; }
+
+  .scanlines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent 0, transparent 2px,
+      rgba(255,255,255,0.025) 2px, rgba(255,255,255,0.025) 3px
+    );
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, oklch(0.30 0 0 / 0.4) 1px, transparent 1px),
+      linear-gradient(to bottom, oklch(0.30 0 0 / 0.4) 1px, transparent 1px);
+    background-size: 56px 56px;
+  }
+  .noise {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.18 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+  .text-stroke {
+    -webkit-text-stroke: 1px var(--foreground);
+    color: transparent;
+  }
+  .glow-text { text-shadow: 0 0 18px oklch(0.92 0.16 175 / 0.55); }
+
+  /* Scroll-triggered fade-in */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hero title animation */
+  .hero-title {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: heroFadeIn 0.8s ease-out 0.2s forwards;
+  }
+  @keyframes heroFadeIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Hover scale on images */
+  .img-hover { transition: transform 0.7s ease; }
+  .img-hover:hover { transform: scale(1.05); }
+
+  /* Talent grayscale */
+  .talent-img {
+    filter: grayscale(1);
+    transition: filter 0.5s ease, transform 0.5s ease;
+  }
+  .group:hover .talent-img {
+    filter: grayscale(0);
+    transform: scale(1.05);
+  }
+</style>
+</head>
+
+<body>
+<main class="min-h-screen bg-background text-foreground">
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TOP BAR -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="fixed inset-x-0 top-0 z-50">
+  <!-- Ticker -->
+  <div class="overflow-hidden border-b border-line bg-accent text-accent-foreground">
+    <div class="flex animate-marquee whitespace-nowrap py-1.5 font-mono text-[11px] uppercase tracking-[0.3em]">
+      <div class="flex shrink-0 items-center gap-8 px-4">
+        <span class="flex items-center gap-8">EST. 2004 <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">21 YRS IN GAMING <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">6 OFFICES · SEA <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">400+ IN-HOUSE EXPERTS <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">200M+ GAMERS REACHED <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">150M+ HOURS WATCHED <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">100M+ IMPRESSIONS <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">265 BROADCAST DAYS / YR <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">70+ AAA EVENTS <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">MNSK ⟶ GLOBAL ⟶ PH <span class="opacity-60">★</span></span>
+      </div>
+      <div class="flex shrink-0 items-center gap-8 px-4">
+        <span class="flex items-center gap-8">EST. 2004 <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">21 YRS IN GAMING <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">6 OFFICES · SEA <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">400+ IN-HOUSE EXPERTS <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">200M+ GAMERS REACHED <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">150M+ HOURS WATCHED <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">100M+ IMPRESSIONS <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">265 BROADCAST DAYS / YR <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">70+ AAA EVENTS <span class="opacity-60">★</span></span>
+        <span class="flex items-center gap-8">MNSK ⟶ GLOBAL ⟶ PH <span class="opacity-60">★</span></span>
+      </div>
+    </div>
+  </div>
+  <!-- Nav -->
+  <nav class="border-b border-line bg-background backdrop-blur" style="background-color: oklch(0.10 0 0 / 0.97)">
+    <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 sm:px-6">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="assets/mineski/mineski-logo.svg" alt="Mineski" class="h-7 w-auto" style="filter: brightness(0) invert(1);">
+        <span class="font-mono text-[11px] uppercase tracking-[0.32em]">Mineski / Global / PH</span>
+      </a>
+      <div class="hidden items-center gap-8 font-mono text-[11px] uppercase tracking-[0.28em] md:flex">
+        <a href="#who" class="hover:text-accent transition-colors">Who</a>
+        <a href="#work" class="hover:text-accent transition-colors">Work</a>
+        <a href="#solutions" class="hover:text-accent transition-colors">Solutions</a>
+        <a href="#network" class="hover:text-accent transition-colors">Network</a>
+        <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
+      </div>
+      <a href="#contact" class="group inline-flex items-center gap-2 border border-accent bg-accent px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-accent-foreground hover:bg-transparent hover:text-accent transition-colors">
+        Start a project <span class="transition-transform group-hover:translate-x-0.5">→</span>
+      </a>
+    </div>
+  </nav>
+</div>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- HERO -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="top" class="relative isolate min-h-screen overflow-hidden border-b border-line pt-[88px]">
+  <img src="assets/mineski/hero-asone.jpg" alt="Mineski As One — team on stage" class="absolute inset-0 -z-20 size-full object-cover opacity-45">
+  <div class="absolute inset-0 -z-10 bg-gradient-to-b from-background/60 via-background/70 to-background"></div>
+  <div class="absolute inset-0 -z-10 grid-bg opacity-50"></div>
+  <div class="absolute inset-0 -z-10 scanlines pointer-events-none"></div>
+  <div class="absolute inset-0 -z-10 noise opacity-[0.35] pointer-events-none"></div>
+
+  <div class="mx-auto grid max-w-[1400px] grid-cols-12 gap-x-4 px-4 pt-12 sm:px-6 lg:pt-20">
+    <div class="col-span-12 flex items-center gap-3 lg:col-span-8">
+      <!-- Chip accent -->
+      <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent">
+        <span class="size-1.5 bg-accent"></span>FILE · MNSK-PH-001
+      </span>
+      <!-- Chip -->
+      <span class="inline-flex items-center gap-1.5 border border-line px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+        <span class="size-1.5 bg-muted-foreground"></span>VOL. 21 / SEA EDITION
+      </span>
+    </div>
+
+    <h1 class="hero-title font-display col-span-12 mt-8 text-[clamp(3.5rem,12vw,11rem)] font-black uppercase leading-[0.85] tracking-tight">
+      Passion <br>
+      <span class="text-stroke">Turned</span> <span class="text-accent">Legacy.</span>
+    </h1>
+
+    <div class="col-span-12 mt-10 grid grid-cols-12 gap-4 lg:mt-16">
+      <div class="col-span-12 lg:col-span-5">
+        <p class="max-w-md text-pretty text-base text-foreground/80 sm:text-lg">
+          Experiential, esports &amp; production solutions for brands across Southeast Asia.
+          Building tournaments, stages and stories since 2004.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="#contact" class="group inline-flex items-center gap-3 bg-accent px-5 py-3 font-mono text-xs uppercase tracking-[0.28em] text-accent-foreground hover:bg-foreground hover:text-background transition-colors">
+            Start a project <span class="transition-transform group-hover:translate-x-1">→</span>
+          </a>
+          <a href="#work" class="inline-flex items-center gap-3 border border-foreground/40 px-5 py-3 font-mono text-xs uppercase tracking-[0.28em] hover:border-foreground transition-colors">
+            See the work
+          </a>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-7 lg:pl-10">
+        <div class="grid grid-cols-3 gap-px border border-line bg-line text-center">
+          <div class="bg-background px-3 py-5"><div class="font-display text-3xl sm:text-4xl">21</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Years</div></div>
+          <div class="bg-background px-3 py-5"><div class="font-display text-3xl sm:text-4xl">6</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Offices</div></div>
+          <div class="bg-background px-3 py-5"><div class="font-display text-3xl sm:text-4xl">400+</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Experts</div></div>
+          <div class="bg-background px-3 py-5"><div class="font-display text-3xl sm:text-4xl">200M+</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Reach</div></div>
+          <div class="bg-background px-3 py-5"><div class="font-display text-3xl sm:text-4xl">70+</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">AAA Events</div></div>
+          <div class="bg-background px-3 py-5"><div class="font-display text-3xl sm:text-4xl">265</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Broadcast / yr</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-span-12 mt-16 flex items-end justify-between border-t border-line pt-4 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+      <div class="space-y-1">
+        <div>LAT 14.5995° N · LON 120.9842° E</div>
+        <div>MANILA — METRO HQ</div>
+      </div>
+      <div class="hidden sm:block">SCROLL ↓ TO ENTER</div>
+      <div class="text-right">
+        <div>RUN-TIME: 21:00:00</div>
+        <div class="text-accent">● LIVE FEED</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- WHO WE ARE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="who" class="border-b border-line bg-background">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">01</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Who We Are</span>
+    </div>
+    <div class="mt-12 grid grid-cols-12 gap-8">
+      <h2 class="font-display col-span-12 text-[clamp(2.5rem,8vw,7rem)] font-black uppercase leading-[0.9] lg:col-span-8">
+        We don't <br> run events. <br>
+        We <span class="text-accent">engineer</span> <br> spectacle.
+      </h2>
+      <div class="col-span-12 space-y-6 self-end text-base text-foreground/80 lg:col-span-4">
+        <p>Founded in 2004, Mineski began as a passionate team dedicated to redefining engagement in gaming and esports.</p>
+        <p>Today, we're a leader in experiential &amp; production solutions, empowering brands across industries through innovation, creativity, and master-level craft.</p>
+        <div class="border-l-2 border-accent pl-4 font-mono text-[11px] uppercase tracking-[0.24em] text-muted-foreground">
+          "Passion turned legacy." <br>
+          <span class="text-foreground">— Mineski, since 2004</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- PRESENCE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="border-b border-line">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">02</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Presence in Southeast Asia</span>
+    </div>
+
+    <div class="mt-12 grid grid-cols-12 gap-8">
+      <div class="col-span-12 lg:col-span-5">
+        <div class="relative overflow-hidden border border-line bg-card">
+          <img src="assets/mineski/sea-map.jpg" alt="Map of Southeast Asia operations" class="w-full object-cover mix-blend-screen opacity-90">
+          <div class="pointer-events-none absolute inset-0 grid-bg opacity-30"></div>
+          <div class="absolute left-3 top-3 font-mono text-[10px] uppercase tracking-[0.28em] text-glow glow-text">SEA-OPS / 06 NODES</div>
+          <div class="absolute bottom-3 right-3 flex gap-2">
+            <span class="border border-glow/60 px-1.5 py-0.5 font-mono text-[10px] text-glow">PH</span>
+            <span class="border border-glow/60 px-1.5 py-0.5 font-mono text-[10px] text-glow">ID</span>
+            <span class="border border-glow/60 px-1.5 py-0.5 font-mono text-[10px] text-glow">MY</span>
+            <span class="border border-glow/60 px-1.5 py-0.5 font-mono text-[10px] text-glow">SG</span>
+            <span class="border border-glow/60 px-1.5 py-0.5 font-mono text-[10px] text-glow">TH</span>
+            <span class="border border-glow/60 px-1.5 py-0.5 font-mono text-[10px] text-glow">VN</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-span-12 lg:col-span-7">
+        <div class="grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">01 / Years in gaming</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="21"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">02 / SEA offices</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="6"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">03 / In-house experts</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="400" data-suffix="+"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">04 / Gamers reached</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="200" data-suffix="M+"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">05 / Hours watched</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="150" data-suffix="M+"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">06 / Impressions</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="100" data-suffix="M+"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">07 / Broadcast days / yr</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="265"></span></div>
+          </div>
+          <div class="relative bg-background p-5">
+            <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">08 / AAA events</div>
+            <div class="font-display mt-3 text-4xl sm:text-5xl"><span class="countup" data-to="70" data-suffix="+"></span></div>
+          </div>
+        </div>
+        <p class="mt-6 max-w-lg text-sm text-muted-foreground">
+          From planning to execution — Manila, Jakarta, Kuala Lumpur, Singapore, Bangkok, Ho Chi Minh.
+          One network. One creative engine.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- GLOBAL REACH -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="work" class="border-b border-line">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">03</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Global Reach — Tournament Footprint</span>
+    </div>
+    <h2 class="font-display mt-8 text-[clamp(2.25rem,6vw,5rem)] font-black uppercase leading-[0.9]">
+      Stages built <br> across <span class="text-accent">Six countries.</span>
+    </h2>
+
+    <div class="mt-12 grid grid-cols-12 gap-4">
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-12 lg:col-span-7 lg:row-span-2">
+        <div class="aspect-[4/3]"><img src="assets/mineski/reach-1.jpg" alt="PHILIPPINES — SEA Games" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">PHILIPPINES · 2019</div><div class="font-display mt-1 text-lg uppercase">SEA Games</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#001</span>
+        </div>
+      </div>
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-6 lg:col-span-5">
+        <div class="aspect-square"><img src="assets/mineski/reach-2.jpg" alt="CAMBODIA — MSC 2023" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">CAMBODIA · 2023</div><div class="font-display mt-1 text-lg uppercase">MSC 2023</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#002</span>
+        </div>
+      </div>
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-6 lg:col-span-3">
+        <div class="aspect-square"><img src="assets/mineski/reach-3.jpg" alt="MALAYSIA — MLBB M1 · M5 Wild Card" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">MALAYSIA · 2019 / 2023</div><div class="font-display mt-1 text-lg uppercase">MLBB M1 · M5 Wild Card</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#003</span>
+        </div>
+      </div>
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-6 lg:col-span-2">
+        <div class="aspect-square"><img src="assets/mineski/reach-4.jpg" alt="SINGAPORE — MLBB M3 · MPL SG S6" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">SINGAPORE · 2021 / 2023</div><div class="font-display mt-1 text-lg uppercase">MLBB M3 · MPL SG S6</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#004</span>
+        </div>
+      </div>
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-6 lg:col-span-3">
+        <div class="aspect-square"><img src="assets/mineski/reach-5.jpg" alt="VIETNAM — SEA Games Hanoi — MLBB" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">VIETNAM · 2022</div><div class="font-display mt-1 text-lg uppercase">SEA Games Hanoi — MLBB</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#005</span>
+        </div>
+      </div>
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-6 lg:col-span-3">
+        <div class="aspect-square"><img src="assets/mineski/reach-6.jpg" alt="THAILAND — Free Fire World Series" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">THAILAND · 2023</div><div class="font-display mt-1 text-lg uppercase">Free Fire World Series</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#006</span>
+        </div>
+      </div>
+      <div class="fade-in relative overflow-hidden border border-line bg-card col-span-6 lg:col-span-3">
+        <div class="aspect-square"><img src="assets/mineski/reach-7.jpg" alt="INDONESIA — MLBB M2 · M3 · M4" class="size-full object-cover img-hover"></div>
+        <div class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-background via-background/70 to-transparent p-3">
+          <div><div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">INDONESIA · 2020–2023</div><div class="font-display mt-1 text-lg uppercase">MLBB M2 · M3 · M4</div></div>
+          <span class="font-mono text-[10px] text-muted-foreground">#007</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- IMPACT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="border-b border-line bg-paper text-ink">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-ink/20 pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-ink/60">
+      <span class="text-accent">04</span>
+      <span class="h-px flex-1 bg-ink/20"></span>
+      <span>Impact in SEA</span>
+    </div>
+    <h2 class="font-display mt-8 text-[clamp(2.25rem,7vw,6rem)] font-black uppercase leading-[0.9]">
+      Campaigns <br> that <span class="text-accent">moved markets.</span>
+    </h2>
+
+    <div class="mt-12 grid grid-cols-12 gap-4">
+      <div class="group relative overflow-hidden border border-ink/20 col-span-12 md:col-span-7 aspect-[16/10]">
+        <img src="assets/mineski/impact-1.jpg" alt="Berocca Marketing Campaign" class="size-full object-cover img-hover">
+        <div class="absolute inset-x-0 bottom-0 bg-paper px-3 py-2">
+          <div class="flex items-center justify-between"><span class="font-display text-sm uppercase">Berocca Marketing Campaign</span><span class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50">CASE / 01</span></div>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden border border-ink/20 col-span-6 md:col-span-5 aspect-square">
+        <img src="assets/mineski/impact-2.jpg" alt="M6 Legends United · Football Exhibition" class="size-full object-cover img-hover">
+        <div class="absolute inset-x-0 bottom-0 bg-paper px-3 py-2">
+          <div class="flex items-center justify-between"><span class="font-display text-sm uppercase">M6 Legends United · Football Exhibition</span><span class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50">CASE / 02</span></div>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden border border-ink/20 col-span-6 md:col-span-4 aspect-[4/5]">
+        <img src="assets/mineski/impact-3.jpg" alt="Ragnarok Odin Cup" class="size-full object-cover img-hover">
+        <div class="absolute inset-x-0 bottom-0 bg-paper px-3 py-2">
+          <div class="flex items-center justify-between"><span class="font-display text-sm uppercase">Ragnarok Odin Cup</span><span class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50">CASE / 03</span></div>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden border border-ink/20 col-span-6 md:col-span-4 aspect-[4/5]">
+        <img src="assets/mineski/impact-4.jpg" alt="SEA Games Hanoi" class="size-full object-cover img-hover">
+        <div class="absolute inset-x-0 bottom-0 bg-paper px-3 py-2">
+          <div class="flex items-center justify-between"><span class="font-display text-sm uppercase">SEA Games Hanoi</span><span class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50">CASE / 04</span></div>
+        </div>
+      </div>
+      <div class="group relative overflow-hidden border border-ink/20 col-span-12 md:col-span-4 aspect-[4/5]">
+        <img src="assets/mineski/impact-5.jpg" alt="M6 World Championship + Festival" class="size-full object-cover img-hover">
+        <div class="absolute inset-x-0 bottom-0 bg-paper px-3 py-2">
+          <div class="flex items-center justify-between"><span class="font-display text-sm uppercase">M6 World Championship + Festival</span><span class="font-mono text-[10px] uppercase tracking-[0.22em] text-ink/50">CASE / 05</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SOLUTIONS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="solutions" class="border-b border-line">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">05</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Our Solutions</span>
+    </div>
+    <h2 class="font-display mt-8 text-[clamp(2.25rem,7vw,6rem)] font-black uppercase leading-[0.9]">
+      Three engines. <br>
+      One <span class="text-accent">production line.</span>
+    </h2>
+
+    <div class="mt-12 grid grid-cols-1 gap-px border border-line bg-line md:grid-cols-3">
+      <!-- S/01 -->
+      <div class="group relative bg-background p-6 transition-colors hover:bg-card sm:p-8">
+        <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          <span class="text-accent">S/01</span><span>01 / 03</span>
+        </div>
+        <h3 class="font-display mt-6 text-3xl uppercase sm:text-4xl">Event Services</h3>
+        <ul class="mt-6 space-y-2 text-sm text-foreground/80">
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Event Production &amp; Management</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Livestream Management</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Live Production Management</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Esports IP &amp; Branding Development</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Tournament Management</li>
+          <li class="flex gap-2 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Broadcast Production</li>
+        </ul>
+      </div>
+      <!-- S/02 -->
+      <div class="group relative bg-background p-6 transition-colors hover:bg-card sm:p-8">
+        <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          <span class="text-accent">S/02</span><span>02 / 03</span>
+        </div>
+        <h3 class="font-display mt-6 text-3xl uppercase sm:text-4xl">Marketing &amp; Content</h3>
+        <ul class="mt-6 space-y-2 text-sm text-foreground/80">
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Campaign Development &amp; Execution</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Social Media Marketing Management</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Influencer Marketing &amp; Management</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Digital Content Production</li>
+          <li class="flex gap-2 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>OOH Activation</li>
+        </ul>
+      </div>
+      <!-- S/03 -->
+      <div class="group relative bg-background p-6 transition-colors hover:bg-card sm:p-8">
+        <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          <span class="text-accent">S/03</span><span>03 / 03</span>
+        </div>
+        <h3 class="font-display mt-6 text-3xl uppercase sm:text-4xl">Creatives</h3>
+        <ul class="mt-6 space-y-2 text-sm text-foreground/80">
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>3D Environments</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>2D &amp; 3D Motion Graphics</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Augmented Reality Production</li>
+          <li class="flex gap-2 border-b border-line/60 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Broadcast &amp; Livestream Overlays</li>
+          <li class="flex gap-2 pb-2"><span class="mt-1 size-1.5 shrink-0 bg-accent"></span>Key Visual Design</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- CAPABILITIES -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="border-b border-line bg-background">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">06</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Capabilities — Production Stack</span>
+    </div>
+
+    <div class="mt-12 grid grid-cols-12 gap-4">
+      <!-- CAP/01 -->
+      <article class="fade-in group relative col-span-12 overflow-hidden border border-line bg-card sm:col-span-6 lg:col-span-4">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="assets/mineski/cap-3d.jpg" alt="3D Production Design" class="size-full object-cover img-hover">
+          <div class="absolute left-3 top-3 z-10">
+            <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CAP/01</span>
+          </div>
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-30"></div>
+        </div>
+        <div class="flex items-center justify-between border-t border-line p-4">
+          <div><h3 class="font-display text-xl uppercase">3D Production Design</h3><p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Real-time render · Unreal 5 · LED volumes</p></div>
+          <span class="font-mono text-xs text-accent">→</span>
+        </div>
+      </article>
+      <!-- CAP/02 -->
+      <article class="fade-in group relative col-span-12 overflow-hidden border border-line bg-card sm:col-span-6 lg:col-span-4">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="assets/mineski/cap-kv.jpg" alt="Key Visual Direction" class="size-full object-cover img-hover">
+          <div class="absolute left-3 top-3 z-10">
+            <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CAP/02</span>
+          </div>
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-30"></div>
+        </div>
+        <div class="flex items-center justify-between border-t border-line p-4">
+          <div><h3 class="font-display text-xl uppercase">Key Visual Direction</h3><p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Campaign KVs · Editorial · Print</p></div>
+          <span class="font-mono text-xs text-accent">→</span>
+        </div>
+      </article>
+      <!-- CAP/03 -->
+      <article class="fade-in group relative col-span-12 overflow-hidden border border-line bg-card sm:col-span-6 lg:col-span-4">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="assets/mineski/cap-video.jpg" alt="Video Production" class="size-full object-cover img-hover">
+          <div class="absolute left-3 top-3 z-10">
+            <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CAP/03</span>
+          </div>
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-30"></div>
+        </div>
+        <div class="flex items-center justify-between border-t border-line p-4">
+          <div><h3 class="font-display text-xl uppercase">Video Production</h3><p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">AVP · Film · Podcasts · Animation</p></div>
+          <span class="font-mono text-xs text-accent">→</span>
+        </div>
+      </article>
+      <!-- CAP/04 -->
+      <article class="fade-in group relative col-span-12 overflow-hidden border border-line bg-card sm:col-span-6 lg:col-span-4">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="assets/mineski/cap-stage1.jpg" alt="Stage · Lights · Sound" class="size-full object-cover img-hover">
+          <div class="absolute left-3 top-3 z-10">
+            <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CAP/04</span>
+          </div>
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-30"></div>
+        </div>
+        <div class="flex items-center justify-between border-t border-line p-4">
+          <div><h3 class="font-display text-xl uppercase">Stage · Lights · Sound</h3><p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Full rig design · Multi-cam control</p></div>
+          <span class="font-mono text-xs text-accent">→</span>
+        </div>
+      </article>
+      <!-- CAP/05 -->
+      <article class="fade-in group relative col-span-12 overflow-hidden border border-line bg-card sm:col-span-6 lg:col-span-4">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="assets/mineski/cap-stage2.jpg" alt="Arena Builds" class="size-full object-cover img-hover">
+          <div class="absolute left-3 top-3 z-10">
+            <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CAP/05</span>
+          </div>
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-30"></div>
+        </div>
+        <div class="flex items-center justify-between border-t border-line p-4">
+          <div><h3 class="font-display text-xl uppercase">Arena Builds</h3><p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Honor of Kings · MPL · M-Series</p></div>
+          <span class="font-mono text-xs text-accent">→</span>
+        </div>
+      </article>
+      <!-- CAP/06 -->
+      <article class="fade-in group relative col-span-12 overflow-hidden border border-line bg-card sm:col-span-6 lg:col-span-4">
+        <div class="relative aspect-[4/3] overflow-hidden">
+          <img src="assets/mineski/cap-led.jpg" alt="LED Walls & Floors" class="size-full object-cover img-hover">
+          <div class="absolute left-3 top-3 z-10">
+            <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CAP/06</span>
+          </div>
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-30"></div>
+        </div>
+        <div class="flex items-center justify-between border-t border-line p-4">
+          <div><h3 class="font-display text-xl uppercase">LED Walls &amp; Floors</h3><p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Unilumin UGMII 03 · 7680Hz · 1000×500</p></div>
+          <span class="font-mono text-xs text-accent">→</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- NOTABLE CAMPAIGNS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="border-b border-line">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">07</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Notable Campaigns — By the numbers</span>
+    </div>
+
+    <div class="mt-12 grid grid-cols-12 gap-4">
+      <!-- Valorant -->
+      <div class="col-span-12 border border-line bg-card p-6 sm:p-10 lg:col-span-6">
+        <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CMP/01</span>
+        <h3 class="font-display mt-4 text-3xl uppercase sm:text-4xl">Valorant Challengers Tour</h3>
+        <p class="mt-2 max-w-md text-sm text-muted-foreground">End-to-end tournament production, broadcast and digital amplification.</p>
+        <div class="mt-8 grid grid-cols-3 gap-px border border-line bg-line">
+          <div class="bg-background p-4"><div class="font-display text-3xl text-accent sm:text-4xl">36M</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Reach</div></div>
+          <div class="bg-background p-4"><div class="font-display text-3xl text-accent sm:text-4xl">1.4M</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Engagement</div></div>
+          <div class="bg-background p-4"><div class="font-display text-3xl text-accent sm:text-4xl">68.8M</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Impressions</div></div>
+        </div>
+      </div>
+
+      <!-- Mountain Dew -->
+      <div class="col-span-12 border border-line bg-card p-6 sm:p-10 lg:col-span-6">
+        <span class="inline-flex items-center gap-1.5 border border-accent px-2 py-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent"><span class="size-1.5 bg-accent"></span>CMP/02</span>
+        <h3 class="font-display mt-4 text-3xl uppercase sm:text-4xl">Mountain Dew × Game On</h3>
+        <p class="mt-2 max-w-md text-sm text-muted-foreground">Community-driven activation across 10 Facebook groups, retail uplift &amp; Discord onboarding.</p>
+        <div class="mt-8 grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
+          <div class="bg-background p-4"><div class="font-display text-2xl text-accent sm:text-3xl">263K</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Organic Reach · 10 FB Groups</div></div>
+          <div class="bg-background p-4"><div class="font-display text-2xl text-accent sm:text-3xl">25K</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Campaign Engagement</div></div>
+          <div class="bg-background p-4"><div class="font-display text-2xl text-accent sm:text-3xl">2K</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Bottles Sold</div></div>
+          <div class="bg-background p-4"><div class="font-display text-2xl text-accent sm:text-3xl">306</div><div class="mt-1 font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Discord Registrants</div></div>
+        </div>
+      </div>
+
+      <!-- Event images -->
+      <div class="col-span-12 grid grid-cols-2 gap-4">
+        <div class="relative aspect-[16/10] overflow-hidden border border-line">
+          <img src="assets/mineski/event-1.jpg" alt="MPL & MDL Philippines" class="size-full object-cover">
+          <div class="absolute bottom-0 left-0 right-0 bg-background/85 p-3">
+            <div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">EVT/01 — Production · Coordination · Management</div>
+            <div class="font-display mt-1 text-xl uppercase">MPL &amp; MDL Philippines</div>
+          </div>
+        </div>
+        <div class="relative aspect-[16/10] overflow-hidden border border-line">
+          <img src="assets/mineski/event-2.jpg" alt="Arcade On Wheels Activation" class="size-full object-cover">
+          <div class="absolute bottom-0 left-0 right-0 bg-background/85 p-3">
+            <div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">EVT/02 — Brand Activation</div>
+            <div class="font-display mt-1 text-xl uppercase">Arcade On Wheels</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- TALENTS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="border-b border-line">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">08</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Notable Talents — Roster PH</span>
+    </div>
+    <h2 class="font-display mt-8 text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9]">
+      Voices that <span class="text-accent">move</span> <br> the timeline.
+    </h2>
+
+    <div class="mt-12 grid grid-cols-2 gap-px border border-line bg-line md:grid-cols-3 lg:grid-cols-6">
+      <!-- Talent 1 -->
+      <div class="group relative bg-background">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/mineski/talent-1.jpg" alt="Eri Neeman" class="size-full object-cover talent-img"></div>
+        <div class="p-3">
+          <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground"><span>T/01</span><span class="text-accent">PH</span></div>
+          <div class="font-display mt-2 text-base uppercase">Eri Neeman</div>
+          <div class="mt-2 space-y-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div class="flex justify-between"><span>FB</span><span class="text-foreground">992K</span></div>
+            <div class="flex justify-between"><span>TT</span><span class="text-foreground">1.1M</span></div>
+            <div class="flex justify-between"><span>IG</span><span class="text-foreground">84K</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Talent 2 -->
+      <div class="group relative bg-background">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/mineski/talent-2.jpg" alt="Myrtle Sarrosa" class="size-full object-cover talent-img"></div>
+        <div class="p-3">
+          <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground"><span>T/02</span><span class="text-accent">PH</span></div>
+          <div class="font-display mt-2 text-base uppercase">Myrtle Sarrosa</div>
+          <div class="mt-2 space-y-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div class="flex justify-between"><span>FB</span><span class="text-foreground">9M</span></div>
+            <div class="flex justify-between"><span>TT</span><span class="text-foreground">3.5M</span></div>
+            <div class="flex justify-between"><span>IG</span><span class="text-foreground">1.5M</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Talent 3 -->
+      <div class="group relative bg-background">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/mineski/talent-3.jpg" alt="Manjean Faldas" class="size-full object-cover talent-img"></div>
+        <div class="p-3">
+          <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground"><span>T/03</span><span class="text-accent">PH</span></div>
+          <div class="font-display mt-2 text-base uppercase">Manjean Faldas</div>
+          <div class="mt-2 space-y-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div class="flex justify-between"><span>FB</span><span class="text-foreground">662K</span></div>
+            <div class="flex justify-between"><span>TT</span><span class="text-foreground">353K</span></div>
+            <div class="flex justify-between"><span>IG</span><span class="text-foreground">21.5K</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Talent 4 -->
+      <div class="group relative bg-background">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/mineski/talent-4.jpg" alt="Kristian PH" class="size-full object-cover talent-img"></div>
+        <div class="p-3">
+          <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground"><span>T/04</span><span class="text-accent">PH</span></div>
+          <div class="font-display mt-2 text-base uppercase">Kristian PH</div>
+          <div class="mt-2 space-y-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div class="flex justify-between"><span>FB</span><span class="text-foreground">1.4M</span></div>
+            <div class="flex justify-between"><span>TT</span><span class="text-foreground">2.6M</span></div>
+            <div class="flex justify-between"><span>IG</span><span class="text-foreground">100K</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Talent 5 -->
+      <div class="group relative bg-background">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/mineski/talent-5.jpg" alt="Charess" class="size-full object-cover talent-img"></div>
+        <div class="p-3">
+          <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground"><span>T/05</span><span class="text-accent">PH</span></div>
+          <div class="font-display mt-2 text-base uppercase">Charess</div>
+          <div class="mt-2 space-y-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div class="flex justify-between"><span>FB</span><span class="text-foreground">930K</span></div>
+            <div class="flex justify-between"><span>TT</span><span class="text-foreground">442K</span></div>
+            <div class="flex justify-between"><span>IG</span><span class="text-foreground">423K</span></div>
+          </div>
+        </div>
+      </div>
+      <!-- Talent 6 -->
+      <div class="group relative bg-background">
+        <div class="aspect-[3/4] overflow-hidden"><img src="assets/mineski/talent-6.jpg" alt="Shyr Balagtas" class="size-full object-cover talent-img"></div>
+        <div class="p-3">
+          <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.24em] text-muted-foreground"><span>T/06</span><span class="text-accent">PH</span></div>
+          <div class="font-display mt-2 text-base uppercase">Shyr Balagtas</div>
+          <div class="mt-2 space-y-0.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+            <div class="flex justify-between"><span>FB</span><span class="text-foreground">1.7M</span></div>
+            <div class="flex justify-between"><span>TT</span><span class="text-foreground">7.2M</span></div>
+            <div class="flex justify-between"><span>IG</span><span class="text-foreground">483K</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- NETWORK -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="network" class="border-b border-line bg-paper text-ink">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="flex items-center gap-4 border-b border-ink/20 pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-ink/60">
+      <span class="text-accent">09</span>
+      <span class="h-px flex-1 bg-ink/20"></span>
+      <span>Mineski Network — Affiliates &amp; Partners</span>
+    </div>
+
+    <div class="mt-12 grid grid-cols-12 gap-4">
+      <div class="col-span-12 border border-ink/20 bg-paper p-6 sm:col-span-6 lg:col-span-3">
+        <div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">AFF/01</div>
+        <h3 class="font-display mt-4 text-2xl uppercase">GG Truck</h3>
+        <p class="mt-3 text-sm text-ink/70">Mobile gaming activation rig — bring the arena anywhere.</p>
+      </div>
+      <div class="col-span-12 border border-ink/20 bg-paper p-6 sm:col-span-6 lg:col-span-3">
+        <div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">AFF/02</div>
+        <h3 class="font-display mt-4 text-2xl uppercase">MiSo</h3>
+        <p class="mt-3 text-sm text-ink/70">Digital media arm — trend &amp; data-driven content production.</p>
+      </div>
+      <div class="col-span-12 border border-ink/20 bg-paper p-6 sm:col-span-6 lg:col-span-3">
+        <div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">AFF/03</div>
+        <h3 class="font-display mt-4 text-2xl uppercase">Slash</h3>
+        <p class="mt-3 text-sm text-ink/70">Ticketing + engagement platform with gamification.</p>
+      </div>
+      <div class="col-span-12 border border-ink/20 bg-paper p-6 sm:col-span-6 lg:col-span-3">
+        <div class="font-mono text-[10px] uppercase tracking-[0.24em] text-accent">AFF/04</div>
+        <h3 class="font-display mt-4 text-2xl uppercase">APEX Ventures</h3>
+        <p class="mt-3 text-sm text-ink/70">Branded merchandise, premiums &amp; gifting.</p>
+      </div>
+    </div>
+
+    <div class="mt-16">
+      <div class="font-mono text-[11px] uppercase tracking-[0.28em] text-ink/60">Brand &amp; Venue Partners</div>
+      <div class="mt-4 overflow-hidden border-y border-ink/30 bg-ink py-4 text-paper">
+        <div class="flex animate-marquee-fast whitespace-nowrap">
+          <div class="flex shrink-0 items-center gap-10 px-6 font-display text-2xl uppercase">
+            <span class="flex items-center gap-10">Asia Brewery<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Mountain Dew<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Berocca<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Magnolia<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Riot Games<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Moonton<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Garena<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Honor<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">TTRacing<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">MNL48<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Acer<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Logitech<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">PLDT<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Smart<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">TNT<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Cherry<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Cignal<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Globe<span class="text-accent">✦</span></span>
+          </div>
+          <div class="flex shrink-0 items-center gap-10 px-6 font-display text-2xl uppercase">
+            <span class="flex items-center gap-10">Asia Brewery<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Mountain Dew<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Berocca<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Magnolia<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Riot Games<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Moonton<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Garena<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Honor<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">TTRacing<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">MNL48<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Acer<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Logitech<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">PLDT<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Smart<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">TNT<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Cherry<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Cignal<span class="text-accent">✦</span></span>
+            <span class="flex items-center gap-10">Globe<span class="text-accent">✦</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- COUNTRY HEAD MESSAGE -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section class="border-b border-line bg-background">
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-32">
+    <div class="grid grid-cols-12 gap-8 lg:gap-16 items-center">
+      <!-- Photo -->
+      <div class="col-span-12 lg:col-span-4">
+        <div class="relative overflow-hidden border border-line">
+          <img src="assets/mineski/dar.jpg" alt="Dar Cayabyab — Country Manager Philippines" class="w-full object-cover grayscale">
+          <div class="pointer-events-none absolute inset-0 scanlines opacity-20"></div>
+        </div>
+      </div>
+      <!-- Quote -->
+      <div class="col-span-12 lg:col-span-8 space-y-6">
+        <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          <span class="text-accent">MNSK-PH</span> · COUNTRY MESSAGE
+        </div>
+        <blockquote class="font-display text-[clamp(1.75rem,4vw,3.25rem)] font-black uppercase leading-[0.95]">
+          "Your brand deserves <br>
+          more than an event. <br>
+          <span class="text-accent">It deserves a legacy."</span>
+        </blockquote>
+        <p class="max-w-xl text-base text-foreground/75 leading-relaxed">
+          For over two decades, we have turned brand ambitions into unforgettable spectacles across Southeast Asia. Whether you're entering the gaming space for the first time or scaling an existing esports presence, Mineski gives you the infrastructure, the talent, and the craft to make it matter. Let's build something the region remembers.
+        </p>
+        <div class="pt-4 border-t border-line">
+          <div class="font-display text-lg uppercase text-accent">Dar Cayabyab</div>
+          <div class="mt-1 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">Country Manager — Philippines · Mineski Global</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- CONTACT -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<section id="contact" class="relative isolate overflow-hidden border-b border-line bg-background">
+  <div class="absolute inset-0 -z-10 grid-bg opacity-40"></div>
+  <div class="absolute inset-0 -z-10 scanlines pointer-events-none"></div>
+  <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-6 lg:py-40">
+    <div class="flex items-center gap-4 border-b border-line pb-3 font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground">
+      <span class="text-accent">10</span>
+      <span class="h-px flex-1 bg-line"></span>
+      <span>Contact — Start a project</span>
+    </div>
+
+    <h2 class="font-display mt-10 text-[clamp(4rem,16vw,15rem)] font-black uppercase leading-[0.85] tracking-tight">
+      Thank <br> <span class="text-accent">You.</span>
+    </h2>
+    <p class="mt-6 max-w-xl text-pretty text-base text-foreground/80">
+      Got a tournament, brand activation or campaign in motion? Talk to the team that's built
+      stages across Southeast Asia for 21 years.
+    </p>
+
+    <div class="mt-16 grid grid-cols-1 gap-4 md:grid-cols-2">
+      <a href="mailto:dar.cayabyab@mineski.net" class="group relative block border border-line bg-card p-6 transition-colors hover:border-accent sm:p-10">
+        <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          <span class="text-accent">CT/01</span><span>PH-HQ · MNL</span>
+        </div>
+        <h3 class="font-display mt-6 text-3xl uppercase sm:text-4xl">Dar Cayabyab</h3>
+        <p class="mt-2 text-sm text-muted-foreground">Country Manager — Philippines</p>
+        <div class="mt-8 space-y-2 font-mono text-sm">
+          <div class="flex items-center justify-between border-b border-line pb-2">
+            <span class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Phone</span>
+            <span>+63 917 554 7227</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Email</span>
+            <span class="text-accent group-hover:underline">dar.cayabyab@mineski.net</span>
+          </div>
+        </div>
+        <span class="absolute bottom-4 right-4 font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100">→ SEND</span>
+      </a>
+      <a href="mailto:vince.utzurrum@mineskiglobal.com" class="group relative block border border-line bg-card p-6 transition-colors hover:border-accent sm:p-10">
+        <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+          <span class="text-accent">CT/02</span><span>PH-HQ · MNL</span>
+        </div>
+        <h3 class="font-display mt-6 text-3xl uppercase sm:text-4xl">Vince Utzurrum</h3>
+        <p class="mt-2 text-sm text-muted-foreground">Head of Accounts &amp; BD — Philippines</p>
+        <div class="mt-8 space-y-2 font-mono text-sm">
+          <div class="flex items-center justify-between border-b border-line pb-2">
+            <span class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Phone</span>
+            <span>+63 966 745 0957</span>
+          </div>
+          <div class="flex items-center justify-between">
+            <span class="text-[10px] uppercase tracking-[0.24em] text-muted-foreground">Email</span>
+            <span class="text-accent group-hover:underline">vince.utzurrum@mineskiglobal.com</span>
+          </div>
+        </div>
+        <span class="absolute bottom-4 right-4 font-mono text-xs text-accent opacity-0 transition-opacity group-hover:opacity-100">→ SEND</span>
+      </a>
+    </div>
+    <!-- BD Cards -->
+    <div class="mt-12">
+      <div class="font-mono text-[11px] uppercase tracking-[0.28em] text-muted-foreground mb-6">
+        <span class="text-accent">BD /</span> Business Development Team
+      </div>
+      <div class="grid grid-cols-2 gap-4 md:grid-cols-4">
+        <div class="border border-line bg-card p-6">
+          <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-accent mb-4">BD/01</div>
+          <div class="aspect-square bg-mute mb-4 flex items-center justify-center border border-line">
+            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Photo TBD</span>
+          </div>
+          <h3 class="font-display text-lg uppercase">Ella Casabuena</h3>
+          <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Business Developer · PH</p>
+        </div>
+        <div class="border border-line bg-card p-6">
+          <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-accent mb-4">BD/02</div>
+          <div class="aspect-square bg-mute mb-4 flex items-center justify-center border border-line">
+            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Photo TBD</span>
+          </div>
+          <h3 class="font-display text-lg uppercase">Kewen Sy</h3>
+          <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Business Developer · PH</p>
+        </div>
+        <div class="border border-line bg-card p-6">
+          <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-accent mb-4">BD/03</div>
+          <div class="aspect-square bg-mute mb-4 flex items-center justify-center border border-line">
+            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Photo TBD</span>
+          </div>
+          <h3 class="font-display text-lg uppercase">Moki Garcia</h3>
+          <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Business Developer · PH</p>
+        </div>
+        <div class="border border-line bg-card p-6">
+          <div class="font-mono text-[10px] uppercase tracking-[0.28em] text-accent mb-4">BD/04</div>
+          <div class="aspect-square bg-mute mb-4 flex items-center justify-center border border-line">
+            <span class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Photo TBD</span>
+          </div>
+          <h3 class="font-display text-lg uppercase">Jorge Tesoro</h3>
+          <p class="mt-1 font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">Business Developer · PH</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- FOOTER -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<footer class="bg-background">
+  <div class="mx-auto max-w-[1400px] px-4 py-10 sm:px-6">
+    <div class="grid grid-cols-12 gap-4 border-t border-line pt-8 font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground">
+      <div class="col-span-12 md:col-span-4">
+        <img src="assets/mineski/mineski-logo.svg" alt="Mineski" class="h-8 w-auto mb-2" style="filter: brightness(0) invert(1);">
+        <div class="font-display text-xl text-foreground">MINESKI / GLOBAL</div>
+        <div class="mt-2">Manila · Jakarta · KL · SG · Bangkok · HCMC</div>
+      </div>
+      <div class="col-span-6 md:col-span-4">
+        <div class="text-foreground">Confidentiality Notice</div>
+        <p class="mt-2 normal-case tracking-normal text-muted-foreground">
+          Intellectual property of Mineski Global. Do not distribute. Copyright © Mineski Global. All rights reserved.
+        </p>
+      </div>
+      <div class="col-span-6 text-right md:col-span-4">
+        <div>FILE · MNSK-PH-001</div>
+        <div class="mt-1 text-accent">● SYSTEM ONLINE</div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</main>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- SCRIPTS -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<script>
+// CountUp animation
+function animateCountUp(el) {
+  const to = parseInt(el.dataset.to, 10);
+  const suffix = el.dataset.suffix || '';
+  const dur = 1400;
+  const start = performance.now();
+  function tick(t) {
+    const p = Math.min(1, (t - start) / dur);
+    const eased = 1 - Math.pow(1 - p, 3);
+    el.textContent = Math.floor(to * eased).toLocaleString() + suffix;
+    if (p < 1) requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+}
+
+// Intersection Observer for fade-in and countup
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '-10%' });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+const countObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      animateCountUp(entry.target);
+      countObserver.unobserve(entry.target);
+    }
+  });
+}, { rootMargin: '-10%' });
+
+document.querySelectorAll('.countup').forEach(el => countObserver.observe(el));
+</script>
+</body>
+</html>
