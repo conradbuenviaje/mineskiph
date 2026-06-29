@@ -176,23 +176,24 @@ tailwind.config = {
   </div>
   <!-- Nav -->
   <nav class="border-b border-line bg-background backdrop-blur" style="background-color: oklch(0.10 0 0 / 0.97)">
-    <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-3 sm:px-6">
-      <a href="#top" class="flex items-center gap-3">
+    <div class="mx-auto flex max-w-[1400px] flex-wrap items-center justify-between gap-x-4 gap-y-2 px-4 py-3 sm:px-6">
+      <a href="#top" class="flex shrink-0 items-center gap-3">
         <img src="assets/mineski/mineski-logo.svg" alt="Mineski" class="h-7 w-auto" style="filter: brightness(0) invert(1);">
-        <span class="font-mono text-[11px] uppercase tracking-[0.32em]">Mineski / Global / PH</span>
+        <span class="hidden font-mono text-[11px] uppercase tracking-[0.32em] sm:inline">Mineski / Global / PH</span>
       </a>
-      <div class="hidden items-center gap-8 font-mono text-[11px] uppercase tracking-[0.28em] md:flex">
+      <div class="hidden items-center gap-8 font-mono text-[11px] uppercase tracking-[0.28em] lg:flex">
         <a href="#who" class="hover:text-accent transition-colors">Who</a>
         <a href="#work" class="hover:text-accent transition-colors">Work</a>
         <a href="#solutions" class="hover:text-accent transition-colors">Solutions</a>
         <a href="#network" class="hover:text-accent transition-colors">Network</a>
         <a href="#contact" class="hover:text-accent transition-colors">Contact</a>
       </div>
-      <div class="flex items-center gap-3">
-        <a href="https://conradbuenviaje.github.io/MGBallpark/index.html" class="hidden items-center gap-2 border border-accent px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-accent hover:bg-accent hover:text-accent-foreground transition-colors md:inline-flex">
-          ● Ballpark Calculator
+      <div class="flex items-center gap-2 sm:gap-3">
+        <a href="https://conradbuenviaje.github.io/MGBallpark/index.html" class="inline-flex items-center gap-2 border border-accent px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent hover:bg-accent hover:text-accent-foreground transition-colors sm:px-3 sm:text-[11px] sm:tracking-[0.28em]">
+          <span class="sm:hidden">● Ballpark</span>
+          <span class="hidden sm:inline">● Ballpark Calculator</span>
         </a>
-        <a href="#contact" class="group inline-flex items-center gap-2 border border-accent bg-accent px-3 py-1.5 font-mono text-[11px] uppercase tracking-[0.28em] text-accent-foreground hover:bg-transparent hover:text-accent transition-colors">
+        <a href="#contact" class="group inline-flex items-center gap-2 border border-accent bg-accent px-2.5 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-accent-foreground hover:bg-transparent hover:text-accent transition-colors sm:px-3 sm:text-[11px] sm:tracking-[0.28em]">
           Start a project <span class="transition-transform group-hover:translate-x-0.5">→</span>
         </a>
       </div>
